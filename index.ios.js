@@ -103,7 +103,7 @@
                 	<TouchableHighlight style={styles.button} onPress={this._switchCamera}>
  							<Text style={styles.toolbarButton}>Flip</Text>
  					</TouchableHighlight>
-                    <Text style={styles.toolbarTitle}>This is the title</Text>
+                    <Text style={styles.toolbarTitle}>TRAAS</Text>
                     <TouchableHighlight style={styles.button} onPress={this._showPhotos}>
  							<Text style={styles.toolbarButton}>Photos</Text>
  					</TouchableHighlight>
@@ -143,12 +143,6 @@ var styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: 'transparent',
 	},
-	cameraContainer: {
-		flex: 1,
-		justifyContent: "center",
-		alignItems: "center",
-		backgroundColor: "transparent",
-	},
 	imageGrid: {
 		flex: 1,
 		flexDirection: 'row',
@@ -167,11 +161,6 @@ var styles = StyleSheet.create({
 		right: 0,
 		left: 0,
 		justifyContent: "center"
-	},
-	buttonBarTop: {
-		flexDirection: "row",
-		paddingTop: 0,
-		paddingBottom: 0,
 	},
 	button: {
 		padding: 10,

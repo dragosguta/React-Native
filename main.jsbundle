@@ -1274,8 +1274,8 @@ React.createElement(Text,{style:styles.toolbarButton},'Back'))),
 React.createElement(View,{style:styles.imageGrid},
 this.state.images.map(function(image){
 return (
-React.createElement(TouchableHighlight,{onPress:_this2._selectImage.bind(null,image.uri)},
-React.createElement(Image,{style:styles.image,source:{uri:image.uri}})));}))));}else 
+React.createElement(TouchableHighlight,{key:image.key,onPress:_this2._selectImage.bind(null,image.uri)},
+React.createElement(Image,{key:image.key,style:styles.image,source:{uri:image.uri}})));}))));}else 
 
 
 
@@ -1309,49 +1309,6 @@ React.createElement(Text,{style:styles.buttonText},'Take Picture'))))));}}});
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var styles=StyleSheet.create({
 toolbar:{
 backgroundColor:'#81c04d',
@@ -1374,12 +1331,6 @@ scrollViewContainer:{
 flex:1,
 backgroundColor:'transparent'},
 
-cameraContainer:{
-flex:1,
-justifyContent:"center",
-alignItems:"center",
-backgroundColor:"transparent"},
-
 imageGrid:{
 flex:1,
 flexDirection:'row',
@@ -1398,11 +1349,6 @@ bottom:25,
 right:0,
 left:0,
 justifyContent:"center"},
-
-buttonBarTop:{
-flexDirection:"row",
-paddingTop:0,
-paddingBottom:0},
 
 button:{
 padding:10,
