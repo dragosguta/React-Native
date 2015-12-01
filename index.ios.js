@@ -68,16 +68,21 @@
  		});
  	},
 
- 	_showPhotos: function() {
+ 	_showPhotos: function(data) {
  		this.setState({
- 			renderPhotos: true
+ 			renderPhotos: data
  		});
  	},
 
- 	render: function() {
- 		if(this.state.renderPhotos) {
+    render: function() {
+    	if(this.state.renderPhotos) {
  			return (
  				<ScrollView style={styles.scrollViewContainer}>
+ 				<View style={styles.toolbar}>
+                	<TouchableHighlight style={styles.button} onPress={this._showPhotos.bind(null, false)}>
+ 							<Text style={styles.toolbarButton}>Back</Text>
+ 					</TouchableHighlight>
+                </View>
  				<View style={styles.imageGrid}>
  				{ this.state.images.map((image) => {
  					return (
@@ -93,30 +98,47 @@
  		}
  		else {
  			return (
- 				<Camera
- 					ref="cam"
- 					style={styles.cameraContainer}
- 					type={this.state.cameraType}>
+            <View style={styles.mainContainer}>
+                <View style={styles.toolbar}>
+                	<TouchableHighlight style={styles.button} onPress={this._switchCamera}>
+ 							<Text style={styles.toolbarButton}>Flip</Text>
+ 					</TouchableHighlight>
+                    <Text style={styles.toolbarTitle}>This is the title</Text>
+                    <TouchableHighlight style={styles.button} onPress={this._showPhotos}>
+ 							<Text style={styles.toolbarButton}>Photos</Text>
+ 					</TouchableHighlight>
+                </View>
+                <Camera ref="cam" style={styles.content} type={this.state.cameraType}>
  					<View style={styles.buttonBarLower}>
- 						<TouchableHighlight style={styles.button} onPress={this._switchCamera}>
- 							<Text style={styles.buttonText}>Flip Camera</Text>
- 						</TouchableHighlight>
  						<TouchableHighlight style={styles.button} onPress={this._takePicture}>
  							<Text style={styles.buttonText}>Take Picture</Text>
  						</TouchableHighlight>
  					</View>
- 					<View style={styles.buttonBarTop}>
- 						<TouchableHighlight style={styles.button} onPress={this._showPhotos}>
- 							<Text style={styles.buttonText}>Show Photos</Text>
- 						</TouchableHighlight>
- 					</View>
  				</Camera>
- 			);
- 		},
- 	}
+ 		    </View>
+        	);
+ 		}
+    }
  });
 
 var styles = StyleSheet.create({
+	toolbar: {
+        backgroundColor:'#81c04d',
+        paddingTop:30,
+        paddingBottom:10,
+        flexDirection:'row'   
+    },
+    toolbarButton: {
+        width: 50,            
+        color:'#fff',
+        textAlign:'center'
+    },
+    toolbarTitle: {
+        color:'#fff',
+        textAlign:'center',
+        fontWeight:'bold',
+        flex:1               
+    },
 	scrollViewContainer: {
 		flex: 1,
 		backgroundColor: 'transparent',
@@ -148,11 +170,8 @@ var styles = StyleSheet.create({
 	},
 	buttonBarTop: {
 		flexDirection: "row",
-		position: "absolute",
-		bottom: 85,
-		right: 0,
-		left: 85,
-		justifyContent: "right"
+		paddingTop: 0,
+		paddingBottom: 0,
 	},
 	button: {
 		padding: 10,
@@ -162,7 +181,14 @@ var styles = StyleSheet.create({
 	},
 	buttonText: {
 		color: "#FFFFFF"
-	}
+	},
+	mainContainer:{
+        flex:1                  
+    },
+    content:{
+        backgroundColor:'transparent',
+        flex:1                
+    }
 });
 
 
