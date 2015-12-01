@@ -24,7 +24,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		E6D3CC311C0D00BE00074713 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D3CC301C0D006800074713 /* libRCTCamera.a */; };
 		E6D3CC3E1C0D24FF00074713 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D3CC3D1C0D24DB00074713 /* libRCTCameraRoll.a */; };
-		E6D3CC401C0D287F00074713 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = E6D3CC3F1C0D287F00074713 /* main.jsbundle */; };
+		E6F8ECAF1C0D3BBC0054DE14 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = E6F8ECAE1C0D3BBC0054DE14 /* main.jsbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +144,7 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		E6D3CC2B1C0D006800074713 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		E6D3CC381C0D24DB00074713 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
-		E6D3CC3F1C0D287F00074713 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ../main.jsbundle; sourceTree = "<group>"; };
+		E6F8ECAE1C0D3BBC0054DE14 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ../main.jsbundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,7 +253,7 @@
 		13B07FAE1A68108700A75B9A /* dgvb */ = {
 			isa = PBXGroup;
 			children = (
-				E6D3CC3F1C0D287F00074713 /* main.jsbundle */,
+				E6F8ECAE1C0D3BBC0054DE14 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -566,7 +566,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6D3CC401C0D287F00074713 /* main.jsbundle in Resources */,
+				E6F8ECAF1C0D3BBC0054DE14 /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);

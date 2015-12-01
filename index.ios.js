@@ -22,6 +22,7 @@
  	getInitialState: function() {
  		return {
  			cameraType: Camera.constants.Type.back,
+ 			renderPhotos: false,
  			images: [],
  			selected: '',
  		};
@@ -67,39 +68,52 @@
  		});
  	},
 
+ 	_showPhotos: function() {
+ 		this.setState({
+ 			renderPhotos: true
+ 		});
+ 	},
+
  	render: function() {
- 		return (
- 			<ScrollView style={styles.scrollViewContainer}>
+ 		if(this.state.renderPhotos) {
+ 			return (
+ 				<ScrollView style={styles.scrollViewContainer}>
  				<View style={styles.imageGrid}>
  				{ this.state.images.map((image) => {
  					return (
- 						<TouchableHighlight key={image.key} onPress={this._selectImage.bind(null, image.uri)}>
+ 						<TouchableHighlight onPress={this._selectImage.bind(null, image.uri)}>
  						<Image style={styles.image} source={{ uri: image.uri }} />
  						</TouchableHighlight>
- 					);
+ 						);
  					})
  				}
  				</View>
- 			</ScrollView>
- 		
- 			/*
- 			<Camera
- 			ref="cam"
- 			style={styles.cameraContainer}
- 			type={this.state.cameraType}>
- 			<View style={styles.buttonBar}>
- 			<TouchableHighlight style={styles.button} onPress={this._switchCamera}>
- 			<Text style={styles.buttonText}>Flip Camera</Text>
- 			</TouchableHighlight>
- 			<TouchableHighlight style={styles.button} onPress={this._takePicture}>
- 			<Text style={styles.buttonText}>Take Picture</Text>
- 			</TouchableHighlight>
- 			</View>
- 			</Camera>
- 			*/
- 		);
- 	},
- 	
+ 			    </ScrollView>
+ 			);
+ 		}
+ 		else {
+ 			return (
+ 				<Camera
+ 					ref="cam"
+ 					style={styles.cameraContainer}
+ 					type={this.state.cameraType}>
+ 					<View style={styles.buttonBarLower}>
+ 						<TouchableHighlight style={styles.button} onPress={this._switchCamera}>
+ 							<Text style={styles.buttonText}>Flip Camera</Text>
+ 						</TouchableHighlight>
+ 						<TouchableHighlight style={styles.button} onPress={this._takePicture}>
+ 							<Text style={styles.buttonText}>Take Picture</Text>
+ 						</TouchableHighlight>
+ 					</View>
+ 					<View style={styles.buttonBarTop}>
+ 						<TouchableHighlight style={styles.button} onPress={this._showPhotos}>
+ 							<Text style={styles.buttonText}>Show Photos</Text>
+ 						</TouchableHighlight>
+ 					</View>
+ 				</Camera>
+ 			);
+ 		},
+ 	}
  });
 
 var styles = StyleSheet.create({
@@ -124,13 +138,21 @@ var styles = StyleSheet.create({
 		height: 100,
 		margin: 10,
 	},
-	buttonBar: {
+	buttonBarLower: {
 		flexDirection: "row",
 		position: "absolute",
 		bottom: 25,
 		right: 0,
 		left: 0,
 		justifyContent: "center"
+	},
+	buttonBarTop: {
+		flexDirection: "row",
+		position: "absolute",
+		bottom: 85,
+		right: 0,
+		left: 85,
+		justifyContent: "right"
 	},
 	button: {
 		padding: 10,
