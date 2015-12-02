@@ -1195,6 +1195,7 @@ __d('dgvb/index.ios.js',function(global, require, module, exports) {  'use stric
 var React=require('react-native/Libraries/react-native/react-native.js');
 var Camera=require('react-native-camera/index.ios.js');var 
 
+
 AppRegistry=
 
 
@@ -1240,7 +1241,7 @@ NativeModules.ReadImageData.readImage(uri,function(image){
 _this.setState({
 selected:image});
 
-console.log(image);});},
+console.log("image uri: " + image);});},
 
 
 
@@ -1262,20 +1263,28 @@ renderPhotos:data});},
 
 
 
+_runOCR:function(){},
+
+
+
 render:function(){var _this2=this;
 if(this.state.renderPhotos){
 return (
 React.createElement(ScrollView,{style:styles.scrollViewContainer},
 React.createElement(View,{style:styles.toolbar},
 React.createElement(TouchableHighlight,{style:styles.button,onPress:this._showPhotos.bind(null,false)},
-React.createElement(Text,{style:styles.toolbarButton},'Back'))),
+React.createElement(Text,{style:styles.toolbarButton},'Back')),
+
+React.createElement(Text,{style:styles.toolbarTitle},'Photos'),
+React.createElement(TouchableHighlight,{style:styles.button,onPress:this._runOCR},
+React.createElement(Text,{style:styles.toolbarButton},'OCR'))),
 
 
 React.createElement(View,{style:styles.imageGrid},
 this.state.images.map(function(image){
 return (
-React.createElement(TouchableHighlight,{key:image.key,onPress:_this2._selectImage.bind(null,image.uri)},
-React.createElement(Image,{key:image.key,style:styles.image,source:{uri:image.uri}})));}))));}else 
+React.createElement(TouchableHighlight,{onPress:_this2._selectImage.bind(null,image.uri)},
+React.createElement(Image,{style:styles.image,source:{uri:image.uri}})));}))));}else 
 
 
 
@@ -1291,7 +1300,7 @@ React.createElement(View,{style:styles.toolbar},
 React.createElement(TouchableHighlight,{style:styles.button,onPress:this._switchCamera},
 React.createElement(Text,{style:styles.toolbarButton},'Flip')),
 
-React.createElement(Text,{style:styles.toolbarTitle},'This is the title'),
+React.createElement(Text,{style:styles.toolbarTitle},'TRAAS'),
 React.createElement(TouchableHighlight,{style:styles.button,onPress:this._showPhotos},
 React.createElement(Text,{style:styles.toolbarButton},'Photos'))),
 

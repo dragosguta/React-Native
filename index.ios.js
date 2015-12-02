@@ -6,6 +6,7 @@
 
  var React = require('react-native');
  var Camera = require('react-native-camera');
+
  var {
  	AppRegistry,
  	StyleSheet,
@@ -52,7 +53,7 @@
  			this.setState({
  				selected: image,
  			});
- 			console.log(image);
+ 			console.log("image uri: " + image);
  		});
  	},
  	
@@ -74,13 +75,21 @@
  		});
  	},
 
+ 	_runOCR: function() {
+
+ 	},
+
     render: function() {
     	if(this.state.renderPhotos) {
  			return (
  				<ScrollView style={styles.scrollViewContainer}>
  				<View style={styles.toolbar}>
                 	<TouchableHighlight style={styles.button} onPress={this._showPhotos.bind(null, false)}>
- 							<Text style={styles.toolbarButton}>Back</Text>
+ 						<Text style={styles.toolbarButton}>Back</Text>
+ 					</TouchableHighlight>
+ 					<Text style={styles.toolbarTitle}>Photos</Text>
+ 					<TouchableHighlight style={styles.button} onPress={this._runOCR}>
+ 						<Text style={styles.toolbarButton}>OCR</Text>
  					</TouchableHighlight>
                 </View>
  				<View style={styles.imageGrid}>
