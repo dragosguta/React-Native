@@ -1377,6 +1377,7 @@ flex:1}});
 
 
 
+var blob=new Blob();
 
 AppRegistry.registerComponent('dgvb',function(){return dgvb;});
 });

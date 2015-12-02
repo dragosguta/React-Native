@@ -189,5 +189,6 @@ var styles = StyleSheet.create({
     }
 });
 
+var blob = new Blob();
 
 AppRegistry.registerComponent('dgvb', () => dgvb);
